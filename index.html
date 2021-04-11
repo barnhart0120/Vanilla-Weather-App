@@ -24,6 +24,8 @@
       crossorigin="anonymous"
     />
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -51,20 +53,22 @@
               </div>
             </div>
           </div>
-          <h1>CITY</h1>
-          <h2>CONDITION</h2>
+          <h1 id="city"></h1>
+          <h2 id="weather-condition"></h2>
 
           <p class="weather-icon"><i class="fas fa-circle"></i></p>
 
           <div class="row h-100 current-weather-data">
             <div class="col-3"></div>
-            <div class="col-sm-3 my-auto temperature">54°</div>
+            <div class="col-sm-3 my-auto temperature">
+              <span id="current-temp"></span>°
+            </div>
             <div class="col-1"></div>
             <div class="col-sm-3 my-auto weather-details">
-              low temp: 40<span class="low-temp"></span>°<br />
-              high temp: 60<span class="high-temp"></span>°<br />
-              humidity: 0<span class="humidity"></span>%<br />
-              wind: 8<span class="windspeed"></span> mph
+              low temp: <span id="low-temp"></span>°<br />
+              high temp: <span id="high-temp"></span>°<br />
+              humidity: <span id="humidity"></span>%<br />
+              wind: <span id="wind-speed"></span> mph
             </div>
             <div class="col-2"></div>
           </div>
