@@ -11,11 +11,16 @@ body {
 
 h1 {
   font-size: 60px;
+  margin: 20px;
+  text-align: center;
+}
+#date {
+  font-size: 16px;
   margin-top: 40px;
   text-align: center;
 }
-h2 {
-  font-size: 28px;
+h3 {
+  font-size: 32px;
   margin-top: 40px;
   text-align: center;
   text-transform: lowercase;
