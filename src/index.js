@@ -105,6 +105,26 @@ function convertToCelsius(event) {
 
   let tempUnit = document.querySelector(".temp-unit");
   tempUnit.innerHTML = "C";
+
+  let highTemp = document.querySelector("#high-temp");
+  let highTempCelsius = highTemp.innerHTML;
+  highTemp.innerHTML = Math.round((highTempCelsius - 32) * 0.56);
+
+  let lowTemp = document.querySelector("#low-temp");
+  let lowTempCelsius = lowTemp.innerHTML;
+  lowTemp.innerHTML = Math.round((lowTempCelsius - 32) * 0.56);
+
+  let lowUnit = document.querySelector(".low-unit");
+  lowUnit.innerHTML = "C";
+  let highUnit = document.querySelector(".high-unit");
+  highUnit.innerHTML = "C";
+
+  let windSpeed = document.querySelector("#wind-speed");
+  let windSpeedMetric = windSpeed.innerHTML;
+  windSpeed.innerHTML = Math.round(windSpeedMetric * 1.609);
+
+  let windUnit = document.querySelector(".wind-unit");
+  windUnit.innerHTML = " km/h";
 }
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", convertToCelsius);
