@@ -9,14 +9,25 @@ body {
   max-width: 700px;
 }
 
-h1 {
-  font-size: 60px;
-  margin: 20px;
-  text-align: center;
-}
 #date {
   font-size: 16px;
   margin-top: 40px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+#time,
+#am-pm {
+  display: inline-block;
+}
+.current-time {
+  font-size: 16px;
+  margin-top: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 20px;
   text-align: center;
 }
 h3 {
@@ -26,15 +37,15 @@ h3 {
   text-transform: lowercase;
 }
 
-.temperature {
-  font-size: 90px;
-}
-
 .weather-icon {
   color: #f0b13c;
   font-size: 180px;
   margin: 0px;
   text-align: center;
+}
+
+.temperature {
+  font-size: 80px;
 }
 
 .celsius {

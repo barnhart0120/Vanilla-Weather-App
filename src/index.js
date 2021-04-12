@@ -31,6 +31,26 @@ let year = now.getFullYear();
 let currentDate = document.querySelector("#date");
 currentDate.innerHTML = `${day}<br /> ${month} ${date}, ${year}`;
 
+function showFullMinutes() {
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    let currentTime = document.querySelector("#time");
+    currentTime.innerHTML = `${hour}:0${minutes}`;
+  } else {
+    let currentTime = document.querySelector("#time");
+    currentTime.innerHTML = `${hour}:${minutes}`;
+  }
+  if (hour >= 12) {
+    let timeFormat = document.querySelector("#am-pm");
+    timeFormat.innerHTML = `PM`;
+  } else {
+    let timeFormat = document.querySelector("#am-pm");
+    timeFormat.innerHTML = `AM`;
+  }
+}
+showFullMinutes();
+
 function displayWeather(response) {
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = Math.round(response.data.main.temp);
