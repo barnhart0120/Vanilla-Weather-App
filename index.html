@@ -47,7 +47,7 @@
                   />
 
                   <div class="col-1 text-center">
-                    <a href="#" class="celsius">°C</a>
+                    <a href="#" id="celsius">°C</a>
                   </div>
                 </form>
               </div>
@@ -76,10 +76,10 @@
 
           <div class="row h-100 current-weather-data">
             <div class="col-3"></div>
-            <div class="col-sm-3 my-auto temperature">
-              <span id="current-temp"></span>°
+            <div class="col-sm-4 my-auto" id="temperature">
+              <span id="current-temp"></span>° <span class="temp-unit">F</span>
             </div>
-            <div class="col-1"></div>
+
             <div class="col-sm-3 my-auto weather-details">
               low temp: <span id="low-temp"></span>°<br />
               high temp: <span id="high-temp"></span>°<br />

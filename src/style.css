@@ -44,11 +44,11 @@ h3 {
   text-align: center;
 }
 
-.temperature {
-  font-size: 80px;
+#temperature {
+  font-size: 60px;
 }
 
-.celsius {
+#celsius {
   left: 50px;
   font-size: 28px;
   position: relative;

@@ -97,4 +97,16 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+function convertToCelsius(event) {
+  event.preventDefault();
+  let celsiusTemp = document.querySelector("#current-temp");
+  let temperature = celsiusTemp.innerHTML;
+  celsiusTemp.innerHTML = Math.round((temperature - 32) * 0.56);
+
+  let tempUnit = document.querySelector(".temp-unit");
+  tempUnit.innerHTML = "C";
+}
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertToCelsius);
+
 searchCity("Rome");
