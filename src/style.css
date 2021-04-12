@@ -49,10 +49,24 @@ h3 {
 }
 
 #celsius {
-  left: 50px;
-  font-size: 28px;
+  bottom: 30px;
+  left: 40px;
+  font-size: 18px;
   position: relative;
   text-decoration: none;
+}
+#fahrenheit {
+  bottom: 30px;
+  left: 70px;
+  font-size: 18px;
+  position: relative;
+  text-decoration: none;
+}
+.unit-divider {
+  bottom: 30px;
+  left: 56px;
+  font-size: 18px;
+  position: relative;
 }
 .coded-by {
   margin-top: 80px;
