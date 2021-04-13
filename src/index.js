@@ -61,8 +61,9 @@ function displayTime() {
 displayTime();
 
 function displayWeather(response) {
+  fahrenheitTemperature = response.data.main.temp;
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = Math.round(fahrenheitTemperature);
 
   let cityName = document.querySelector("#city");
   cityName.innerHTML = response.data.name;
@@ -70,17 +71,20 @@ function displayWeather(response) {
   let currentCondition = document.querySelector("#weather-condition");
   currentCondition.innerHTML = response.data.weather[0].description;
 
+  fahrenheitLowTemp = response.data.main.temp_min;
   let lowTemp = document.querySelector("#low-temp");
-  lowTemp.innerHTML = Math.round(response.data.main.temp_min);
+  lowTemp.innerHTML = Math.round(fahrenheitLowTemp);
 
+  fahrenheitHighTemp = response.data.main.temp_max;
   let highTemp = document.querySelector("#high-temp");
-  highTemp.innerHTML = Math.round(response.data.main.temp_max);
+  highTemp.innerHTML = Math.round(fahrenheitHighTemp);
 
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
 
+  windSpeedImperial = response.data.wind.speed;
   let windSpeed = document.querySelector("#wind-speed");
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  windSpeed.innerHTML = Math.round(windSpeedImperial);
 }
 
 function searchCity(city) {
@@ -101,19 +105,16 @@ form.addEventListener("submit", handleSubmit);
 function convertToCelsius(event) {
   event.preventDefault();
   let celsiusTemp = document.querySelector("#current-temp");
-  let temperature = celsiusTemp.innerHTML;
-  celsiusTemp.innerHTML = Math.round((temperature - 32) * 0.56);
+  celsiusTemp.innerHTML = Math.round((fahrenheitTemperature - 32) * 0.56);
 
   let tempUnit = document.querySelector(".temp-unit");
   tempUnit.innerHTML = "C";
 
   let highTemp = document.querySelector("#high-temp");
-  let highTempCelsius = highTemp.innerHTML;
-  highTemp.innerHTML = Math.round((highTempCelsius - 32) * 0.56);
+  highTemp.innerHTML = Math.round((fahrenheitHighTemp - 32) * 0.56);
 
   let lowTemp = document.querySelector("#low-temp");
-  let lowTempCelsius = lowTemp.innerHTML;
-  lowTemp.innerHTML = Math.round((lowTempCelsius - 32) * 0.56);
+  lowTemp.innerHTML = Math.round((fahrenheitLowTemp - 32) * 0.56);
 
   let lowUnit = document.querySelector(".low-unit");
   lowUnit.innerHTML = "C";
@@ -121,8 +122,7 @@ function convertToCelsius(event) {
   highUnit.innerHTML = "C";
 
   let windSpeed = document.querySelector("#wind-speed");
-  let windSpeedMetric = windSpeed.innerHTML;
-  windSpeed.innerHTML = Math.round(windSpeedMetric * 1.609);
+  windSpeed.innerHTML = Math.round(windSpeedImperial * 1.609);
 
   let windUnit = document.querySelector(".wind-unit");
   windUnit.innerHTML = " km/h";
@@ -133,19 +133,16 @@ celsiusLink.addEventListener("click", convertToCelsius);
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemp = document.querySelector("#current-temp");
-  let temperature = fahrenheitTemp.innerHTML;
-  fahrenheitTemp.innerHTML = Math.round(temperature * 1.8 + 32);
+  fahrenheitTemp.innerHTML = Math.round(fahrenheitTemperature);
 
   let tempUnit = document.querySelector(".temp-unit");
   tempUnit.innerHTML = "F";
 
   let highTemp = document.querySelector("#high-temp");
-  let highTempFahrenheit = highTemp.innerHTML;
-  highTemp.innerHTML = Math.round(highTempFahrenheit * 1.8 + 32);
+  highTemp.innerHTML = Math.round(fahrenheitHighTemp);
 
   let lowTemp = document.querySelector("#low-temp");
-  let lowTempFahrenheit = lowTemp.innerHTML;
-  lowTemp.innerHTML = Math.round(lowTempFahrenheit * 1.8 + 32);
+  lowTemp.innerHTML = Math.round(fahrenheitLowTemp);
 
   let lowUnit = document.querySelector(".low-unit");
   lowUnit.innerHTML = "F";
@@ -153,13 +150,17 @@ function convertToFahrenheit(event) {
   highUnit.innerHTML = "F";
 
   let windSpeed = document.querySelector("#wind-speed");
-  let windSpeedImperial = windSpeed.innerHTML;
-  windSpeed.innerHTML = Math.round(windSpeedImperial / 1.609);
+  windSpeed.innerHTML = Math.round(windSpeedImperial);
 
   let windUnit = document.querySelector(".wind-unit");
   windUnit.innerHTML = " mph";
 }
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let fahrenheitTemperature = null;
+let fahrenheitLowTemp = null;
+let fahrenheitHighTemp = null;
+let windSpeedImperial = null;
 
 searchCity("Rome");
