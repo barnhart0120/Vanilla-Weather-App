@@ -126,6 +126,9 @@ function convertToCelsius(event) {
 
   let windUnit = document.querySelector(".wind-unit");
   windUnit.innerHTML = " km/h";
+
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", convertToCelsius);
@@ -154,6 +157,9 @@ function convertToFahrenheit(event) {
 
   let windUnit = document.querySelector(".wind-unit");
   windUnit.innerHTML = " mph";
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);

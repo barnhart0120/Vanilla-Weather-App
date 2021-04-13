@@ -11,7 +11,7 @@ body {
 
 #date {
   font-size: 16px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -23,6 +23,14 @@ body {
   font-size: 16px;
   margin-top: 0;
   text-align: center;
+}
+.active {
+  color: #22262a;
+  cursor: default;
+}
+.active:hover {
+  color: #22262a;
+  text-decoration: none;
 }
 
 h1 {
@@ -36,7 +44,9 @@ h3 {
   text-align: center;
   text-transform: lowercase;
 }
-
+.forecast-line {
+  margin-top: 40px;
+}
 #weather-icon {
   color: #f0b13c;
   font-size: 180px;
