@@ -85,6 +85,12 @@ function displayWeather(response) {
   windSpeedImperial = response.data.wind.speed;
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = Math.round(windSpeedImperial);
+
+  let icon = document.querySelector("#weather-icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity(city) {
