@@ -36,7 +36,7 @@ function displayTime() {
   let hour = now.getHours();
   let lateHour = hour - 12;
 
-  if (minutes > 10 && hour < 12) {
+  if (minutes > 10 && hour <= 12) {
     let currentTime = document.querySelector("#time");
     currentTime.innerHTML = `${hour}:${minutes}`;
   } else if (minutes < 10 && hour > 12) {
@@ -45,7 +45,7 @@ function displayTime() {
   } else if (minutes > 10 && hour > 12) {
     let currentTime = document.querySelector("#time");
     currentTime.innerHTML = `${lateHour}:${minutes}`;
-  } else if (minutes < 10 && hour < 12) {
+  } else if (minutes < 10 && hour <= 12) {
     let currentTime = document.querySelector("#time");
     currentTime.innerHTML = `${hour}:0${minutes}`;
   }
