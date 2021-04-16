@@ -89,7 +89,7 @@ function displayWeather(response) {
   let icon = document.querySelector("#weather-icon");
   icon.setAttribute(
     "src",
-    `https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/Clear.pnghttps://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${response.data.weather[0].main}.png`
+    `https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${response.data.weather[0].main}.png`
   );
   console.log(response.data);
 }
