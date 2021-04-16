@@ -89,8 +89,9 @@ function displayWeather(response) {
   let icon = document.querySelector("#weather-icon");
   icon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `file:///Users/daniellebarnhart/Desktop/${response.data.weather[0].main}.png`
   );
+  console.log(response.data);
 }
 
 function searchCity(city) {
