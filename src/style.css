@@ -48,9 +48,10 @@ h3 {
   text-align: center;
   text-transform: lowercase;
 }
-.weather-forecast {
+.forecast-line {
   margin-top: 40px;
 }
+
 #weather-icon {
   display: block;
   margin: 40px auto;

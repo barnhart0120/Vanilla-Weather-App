@@ -28,9 +28,6 @@ let month = months[now.getMonth()];
 let date = now.getDate();
 let year = now.getFullYear();
 
-let currentDate = document.querySelector("#date");
-currentDate.innerHTML = `${day}<br /> ${month} ${date}, ${year}`;
-
 function displayTime() {
   let minutes = now.getMinutes();
   let hour = now.getHours();
@@ -57,8 +54,42 @@ function displayTime() {
     let timeFormat = document.querySelector("#am-pm");
     timeFormat.innerHTML = `AM`;
   }
+  let currentDate = document.querySelector("#date");
+  currentDate.innerHTML = `${day}<br /> ${month} ${date}, ${year}`;
 }
 displayTime();
+
+function displayForecast() {
+  let forecast = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+  let days = [
+    "SUNDAY",
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="row">
+              <div class="col-2"></div>
+              <div class="col-3 my-auto text-center" id="forecast-day">${day}</div>
+              <div class="col-2 my-auto text-center" id="forecast-icon"><img src="https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/Clear.png" width="50px"></div>
+              <div class="col-3 my-auto text-center"> <span id="forecast-high"></span>° | <span id="forecast-low"></span>°</div>
+              <div class="col-2"></div>
+            </div>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8"><hr /></div>
+              <div class="col-2"></div>
+            </div>`;
+    forecast.innerHTML = forecastHTML;
+  });
+}
 
 function displayWeather(response) {
   fahrenheitTemperature = response.data.main.temp;
@@ -91,7 +122,7 @@ function displayWeather(response) {
     "src",
     `https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${response.data.weather[0].main}.png`
   );
-  console.log(response.data);
+  displayForecast();
 }
 
 function searchCity(city) {
@@ -105,7 +136,6 @@ function handleSubmit(event) {
   let cityInput = document.querySelector("#search-bar");
   searchCity(cityInput.value);
 }
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
