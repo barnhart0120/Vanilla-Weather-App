@@ -28,14 +28,6 @@ body {
   margin-top: 0;
   text-align: center;
 }
-.active {
-  color: #22262a;
-  cursor: default;
-}
-.active:hover {
-  color: #22262a;
-  text-decoration: none;
-}
 
 h1 {
   font-size: 60px;
@@ -62,26 +54,6 @@ h3 {
   font-size: 60px;
 }
 
-#celsius {
-  bottom: 30px;
-  left: 40px;
-  font-size: 18px;
-  position: relative;
-  text-decoration: none;
-}
-#fahrenheit {
-  bottom: 30px;
-  left: 70px;
-  font-size: 18px;
-  position: relative;
-  text-decoration: none;
-}
-.unit-divider {
-  bottom: 30px;
-  left: 56px;
-  font-size: 18px;
-  position: relative;
-}
 .coded-by {
   margin-top: 80px;
   text-align: center;
