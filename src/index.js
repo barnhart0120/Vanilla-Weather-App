@@ -59,7 +59,7 @@ function displayTime() {
 }
 displayTime();
 
-function displayForecast() {
+function displayForecast(response) {
   let forecast = document.querySelector("#weather-forecast");
   let forecastHTML = "";
   let days = [
@@ -89,6 +89,13 @@ function displayForecast() {
             </div>`;
     forecast.innerHTML = forecastHTML;
   });
+}
+
+function getForecast(coordinates) {
+  let apiKey = `1b0ea497e82983c26b919b587144daf8`;
+  let part = `current,minutely,hourly`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=${part}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -122,7 +129,7 @@ function displayWeather(response) {
     "src",
     `https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${response.data.weather[0].main}.png`
   );
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
