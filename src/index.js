@@ -59,9 +59,9 @@ function displayTime() {
 }
 displayTime();
 
-function displayForecast(response) {
-  let forecast = document.querySelector("#weather-forecast");
-  let forecastHTML = "";
+function formatForecastDay(timestamp) {
+  let forecastDate = new Date(timestamp * 1000);
+  let day = forecastDate.getDay();
   let days = [
     "SUNDAY",
     "MONDAY",
@@ -71,15 +71,34 @@ function displayForecast(response) {
     "FRIDAY",
     "SATURDAY",
   ];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = "";
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0)
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="row">
               <div class="col-2"></div>
-              <div class="col-3 my-auto text-center" id="forecast-day">${day}</div>
-              <div class="col-2 my-auto text-center" id="forecast-icon"><img src="https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/Clear.png" width="50px"></div>
-              <div class="col-3 my-auto text-center"> <span id="forecast-high"></span>° | <span id="forecast-low"></span>°</div>
+              <div class="col-3 my-auto text-center" id="forecast-day">${formatForecastDay(
+                forecastDay.dt
+              )}</div>
+              <div class="col-2 my-auto text-center" id="forecast-icon"><img src="https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${
+                forecastDay.weather[0].main
+              }.png" width="50px"></div>
+              <div class="col-3 my-auto text-center"> <span id="forecast-high">${Math.round(
+                forecastDay.temp.max
+              )}</span>° | <span id="forecast-low">${Math.round(
+          forecastDay.temp.min
+        )}</span>°</div>
               <div class="col-2"></div>
             </div>
             <div class="row">
@@ -87,7 +106,7 @@ function displayForecast(response) {
               <div class="col-8"><hr /></div>
               <div class="col-2"></div>
             </div>`;
-    forecast.innerHTML = forecastHTML;
+    forecastElement.innerHTML = forecastHTML;
   });
 }
 
@@ -130,6 +149,7 @@ function displayWeather(response) {
     `https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${response.data.weather[0].main}.png`
   );
   getForecast(response.data.coord);
+  console.log(response.data);
 }
 
 function searchCity(city) {
