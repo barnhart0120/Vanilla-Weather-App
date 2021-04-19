@@ -149,7 +149,6 @@ function displayWeather(response) {
     `https://raw.githubusercontent.com/barnhart0120/Vanilla-Weather-App/main/Vanilla%20Weather%20App%20icons/${response.data.weather[0].main}.png`
   );
   getForecast(response.data.coord);
-  console.log(response.data);
 }
 
 function searchCity(city) {
